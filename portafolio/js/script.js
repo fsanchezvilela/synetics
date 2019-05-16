@@ -1,3 +1,19 @@
+//loading
+$(window).on('load', function() {
+  $('.loader .inner').fadeOut(500, function() {
+    $('.loader').fadeOut(750);
+  });
+  //Init isotope
+  $('.items').isotope({
+    filter: '*',
+    animationOptions: {
+      duration: 1500,
+      easing: 'linear',
+      queue: false
+    }
+  });
+});
+
 //Inicializando Documento
 $(document).ready(function() {
   // init SuperSlider 0.6.3
@@ -82,15 +98,6 @@ $(document).ready(function() {
   //Init Fancybox 3
   $('[data-fancybox]').fancybox();
 
-  //Init isotope
-  $('.items').isotope({
-    filter: '*',
-    animationOptions: {
-      duration: 1500,
-      easing: 'linear',
-      queue: false
-    }
-  });
   // init filters
   $('#filters a').click(function() {
     $('#filters .current').removeClass('current');
