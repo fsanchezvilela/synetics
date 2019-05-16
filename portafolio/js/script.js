@@ -107,4 +107,46 @@ $(document).ready(function() {
     //stop event
     return false;
   });
+
+  //navigation fix teleport
+
+  //brand teleport
+  $('#navigation .navbar-brand').click(function() {
+    //prevent default behaviour teleport a tag
+    event.preventDefault();
+    //target the element on the attr href
+    var targetElement = $(this).attr('href');
+    var targetPosition = $(targetElement).offset().top;
+
+    console.log(barPosition);
+    //scroll to the section to the top of the target
+    $('html, body').animate({ scrollTop: targetPosition }, 'slow');
+  });
+
+  $('#navigation li a').click(function() {
+    //prevent default behaviour teleport a tag
+
+    event.preventDefault();
+    //target the element on the attr href
+    var targetElement = $(this).attr('href');
+    var targetPosition = $(targetElement).offset().top;
+    //scroll to the section to the top of the target
+    $('html, body').animate({ scrollTop: targetPosition - 50 }, 'slow');
+  });
+
+  //stick nav bar menu
+  const nav = $('#navigation');
+  const navTop = nav.offset().top;
+  $(window).on('scroll', stickyNavigation);
+  //funcion para el stick nav
+  function stickyNavigation() {
+    const body = $('body');
+    if ($(window).scrollTop() >= navTop) {
+      body.css('padding-top', nav.outerHeight() + 'px');
+      body.addClass('fixedNav');
+    } else {
+      body.css('padding-top', 0);
+      body.removeClass('fixedNav');
+    }
+  }
 });
