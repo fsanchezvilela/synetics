@@ -21,6 +21,7 @@ $(document).ready(function() {
     startDelay: 1400,
     showCursor: false
   });
+
   //init owl-carousel
   $('.owl-carousel').owlCarousel({
     loop: true,
@@ -42,9 +43,13 @@ $(document).ready(function() {
   });
 
   var skillsTopOffset = $('.skillsSection').offset().top;
+  var statsTopOffset = $('.statsSection').offset().top;
+  var countUpFinished = false;
 
   $(window).scroll(function() {
+    // easyPieChart Event Scroll Up Animation
     if (window.pageYOffset > skillsTopOffset - $(window).height() + 300) {
+      //init easyPieChart
       $('.chart').easyPieChart({
         easing: 'easeInOut',
         barColor: '#fff',
@@ -59,5 +64,47 @@ $(document).ready(function() {
         }
       });
     }
+    //CountUp Event Scroll Up animation
+    if (
+      !countUpFinished &&
+      window.pageYOffset > statsTopOffset - $(window).height() + 300
+    ) {
+      //init countUp
+      $('.counter').each(function() {
+        var element = $(this);
+        var endVal = parseInt(element.text());
+        element.countup(endVal);
+      });
+      countUpFinished = true;
+    }
+  });
+
+  //Init Fancybox 3
+  $('[data-fancybox]').fancybox();
+
+  //Init isotope
+  $('.items').isotope({
+    filter: '*',
+    animationOptions: {
+      duration: 1500,
+      easing: 'linear',
+      queue: false
+    }
+  });
+  // init filters
+  $('#filters a').click(function() {
+    $('#filters .current').removeClass('current');
+    $(this).addClass('current');
+    var selector = $(this).attr('data-filter');
+    $('.items').isotope({
+      filter: selector,
+      animationOptions: {
+        duration: 1500,
+        easing: 'linear',
+        queue: false
+      }
+    });
+    //stop event
+    return false;
   });
 });
