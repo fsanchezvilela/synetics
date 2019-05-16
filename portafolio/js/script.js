@@ -117,7 +117,7 @@ $(document).ready(function() {
     //target the element on the attr href
     var targetElement = $(this).attr('href');
     var targetPosition = $(targetElement).offset().top;
-
+    var barPosition = $('#navigation').offset().top;
     console.log(barPosition);
     //scroll to the section to the top of the target
     $('html, body').animate({ scrollTop: targetPosition }, 'slow');
