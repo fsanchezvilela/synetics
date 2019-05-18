@@ -383,3 +383,29 @@
   height: 100%;
   background: url(https://i.imgur.com/IVk3ADp.gif) center center no-repeat;
 }
+
+@keyframes escaladoRedSocialentrada {
+  from {
+    transform: scale(1.5, 1.5);
+  }
+  to {
+    transform: scale(2.65, 2.65);
+  }
+}
+@keyframes escaladoRedSocialSalida {
+  from {
+    transform: scale(2.65, 2.65);
+  }
+  to {
+    transform: scale(1.5, 1.5);
+  }
+}
+.fab {
+  transform: scale(1.5, 1.5);
+  animation: escaladoRedSocialEntrada 1s;
+  margin: 20%;
+  padding: 20%;
+}
+.fab:hover {
+  animation: escaladoRedSocialSalida 1s;
+}
