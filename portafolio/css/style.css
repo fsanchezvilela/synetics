@@ -403,9 +403,45 @@
 .fab {
   transform: scale(1.5, 1.5);
   animation: escaladoRedSocialEntrada 1s;
-  margin: 20%;
-  padding: 20%;
+  margin: 0%;
+  padding: 25%;
 }
 .fab:hover {
-  animation: escaladoRedSocialSalida 1s;
+  animation: escaladoRedSocialSalida 1.35s;
+  animation-fill-mode: initial;
+}
+
+.socialLinks {
+  position: relative;
+  top: 2%;
+  box-sizing: content-box;
+  padding: 2% 0;
+  box-shadow: rgba(133, 130, 130, 0.644);
+  border-radius: 20px;
+  background-color: rgba(32, 70, 197, 0.144);
+}
+#socialLinks {
+  margin-bottom: 1%;
+  color: #000;
+  font-weight: 400;
+  font-size-adjust: inherit;
+}
+.titleHeader {
+  margin-bottom: 3%;
+}
+
+@keyframes movimientoDrag {
+  from {
+    transform: translate(-100px, 0);
+  }
+  to {
+    transition: translate(100px, 0);
+  }
+}
+
+#movehand {
+  position: relative;
+  left: 5%;
+  padding-bottom: 30px;
+  animation: movimientoDrag 1.5s ease-in-out 0s infinite alternate-reverse both;
 }
