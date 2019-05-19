@@ -220,6 +220,8 @@
 .filter {
   text-align: center;
   width: 100%;
+  position: relative;
+  right: 5%;
 }
 
 .section .heading {
@@ -432,16 +434,16 @@
 
 @keyframes movimientoDrag {
   from {
-    transform: translate(-100px, 0);
+    transform: translate(-250%, 0);
   }
   to {
-    transition: translate(100px, 0);
+    transition: translate(-250%, 0);
   }
 }
 
 #movehand {
   position: relative;
-  left: 5%;
+  left: 3%;
   padding-bottom: 30px;
   animation: movimientoDrag 1.5s ease-in-out 0s infinite alternate-reverse both;
 }
